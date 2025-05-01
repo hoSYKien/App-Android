@@ -4,15 +4,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder> {
+
+    /**
+     * Interface để xử lý sự kiện click trên Room item
+     */
+    public interface OnItemClickListener {
+        void onItemClick(Room room);
+    }
+
     private final List<Room> roomList;
+    private OnItemClickListener listener;
 
     public RoomAdapter(List<Room> roomList) {
         this.roomList = roomList;
+    }
+
+    /**
+     * Đăng ký listener từ Activity
+     */
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -26,9 +44,16 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
     @Override
     public void onBindViewHolder(@NonNull RoomViewHolder holder, int position) {
         Room room = roomList.get(position);
-        holder.tvTenPhong.setText(room.getTenPhong());
         holder.tvMaPhong.setText(room.getMaPhong());
+        holder.tvTenPhong.setText(room.getTenPhong());
         holder.tvViTri.setText(room.getViTri());
+
+        // Gọi listener khi người dùng click vào item, việc clear để Activity xử lý
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(room);
+            }
+        });
     }
 
     @Override
@@ -36,13 +61,16 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.RoomViewHolder
         return roomList.size();
     }
 
+    /**
+     * ViewHolder cho Room item
+     */
     static class RoomViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTenPhong, tvMaPhong, tvViTri;
+        TextView tvMaPhong, tvTenPhong, tvViTri;
 
-        RoomViewHolder(@NonNull View itemView) {
+        public RoomViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTenPhong = itemView.findViewById(R.id.tvTenPhong);
             tvMaPhong  = itemView.findViewById(R.id.tvMaPhong);
+            tvTenPhong = itemView.findViewById(R.id.tvTenPhong);
             tvViTri    = itemView.findViewById(R.id.tvViTri);
         }
     }
