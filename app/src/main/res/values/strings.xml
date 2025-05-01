@@ -1,0 +1,5 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <string name="app_name">HoSyKien211604449</string>\
+    <string name="desc_department_list">Danh sách các khoa trong bệnh viện</string>
+    <string name="title_activity_room">RoomActivity</string>
+</resources>
