@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header: STT | Mã PCD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvStt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@android:color/holo_blue_dark"/>
+
+            <TextView
+                android:id="@+id/tvMaPCD"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PCD001"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="end"
+                android:textColor="@android:color/holo_blue_dark"/>
+        </LinearLayout>
+
+        <!-- Small space -->
+        <Space android:layout_width="match_parent" android:layout_height="8dp"/>
+
+        <!-- Info grid: two columns -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="4"
+            android:alignmentMode="alignMargins"
+            android:rowOrderPreserved="false"
+            android:columnOrderPreserved="false"
+            android:useDefaultMargins="true">
+
+            <!-- Bác sĩ -->
+            <TextView
+                android:id="@+id/tvMaBS_TenBS"
+                android:layout_columnWeight="1"
+                android:layout_row="0" android:layout_column="0"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:text="Bác sĩ: BS01"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/tvMaBN_TenBN"
+                android:layout_columnWeight="1"
+                android:layout_row="0" android:layout_column="1"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:text="Người nhận: BN01"
+                android:textSize="14sp"
+                android:gravity="end"/>
+
+            <!-- Tên bác sĩ -->
+            <TextView
+                android:id="@+id/tvTenBS"
+                android:layout_columnWeight="1"
+                android:layout_row="1" android:layout_column="0"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:text="BS: Nguyễn Văn A"
+                android:textSize="14sp"/>
+            <!-- Tên bệnh nhân -->
+            <TextView
+                android:id="@+id/tvTenBN"
+                android:layout_columnWeight="1"
+                android:layout_row="1" android:layout_column="1"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:text="BN: Trần Thị B"
+                android:textSize="14sp"
+                android:gravity="end"/>
+
+            <!-- Ngày CD -->
+            <TextView
+                android:id="@+id/tvNgayCD"
+                android:layout_columnWeight="1"
+                android:layout_row="2" android:layout_column="0"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:text="Ngày CD: 2025-05-02"
+                android:textSize="14sp"/>
+            <!-- Tổng tiền -->
+            <TextView
+                android:id="@+id/tvTongTien"
+                android:layout_columnWeight="1"
+                android:layout_row="2" android:layout_column="1"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:text="Tổng: 150,000"
+                android:textSize="14sp"
+                android:gravity="end"/>
+
+            <!-- Trạng thái spanning both columns -->
+            <TextView
+                android:id="@+id/tvTrangThai"
+                android:layout_row="3" android:layout_column="0"
+                android:layout_columnSpan="2"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Trạng thái: Chưa thực hiện"
+                android:textSize="13sp"
+                android:textColor="@android:color/holo_red_dark"
+                android:gravity="center"/>
+        </GridLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

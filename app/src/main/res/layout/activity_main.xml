@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -41,19 +42,47 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- RecyclerView hiển thị các khoa -->
+    <!-- Content: RecyclerView + TableLayout -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerDepartments"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="8dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
         app:layout_constraintTop_toBottomOf="@id/headerLayout"
         app:layout_constraintBottom_toTopOf="@id/bottomPanel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/item_department" />
 
-    <!-- Bottom panel với 5 nút -->
+    <ScrollView
+        android:id="@+id/scrollPatients"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:visibility="gone"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintBottom_toTopOf="@id/bottomPanel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TableLayout
+            android:id="@+id/tablePatients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow>
+                <TextView android:text="Mã phiếu" android:textStyle="bold" android:padding="8dp"/>
+                <TextView android:text="Mã BN"    android:textStyle="bold" android:padding="8dp"/>
+                <TextView android:text="Tên BN"   android:textStyle="bold" android:padding="8dp"/>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+    <!-- Bottom panel -->
     <LinearLayout
         android:id="@+id/bottomPanel"
         android:layout_width="0dp"
@@ -101,7 +130,6 @@
             android:src="@mipmap/ic_update"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Notifications" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
