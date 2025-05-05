@@ -1,5 +1,26 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <string name="app_name">HoSyKien211604449</string>\
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="app_name">HoSyKien211604449</string>
     <string name="desc_department_list">Danh sách các khoa trong bệnh viện</string>
     <string name="title_activity_room">RoomActivity</string>
+
+    <string-array name="department_list">
+        <item>Cấp Cứu</item>
+        <item>Chuẩn Ðoán Hình Ảnh</item>
+        <item>Dị Ứng</item>
+        <item>Hồi Sức Cấp Cứu</item>
+        <item>Khám Bệnh</item>
+        <item>Nhi</item>
+        <item>Sản</item>
+        <item>Nội Cơ-Xương-Khớp</item>
+        <item>Nội Trú</item>
+        <item>Ngoại Trú</item>
+        <item>Nội Tiết</item>
+        <item>Nội Tổng Hợp</item>
+        <item>Nội Tiêu Hoá</item>
+        <item>Nội Tim Mạch</item>
+        <item>Nội Thận-Tiết Niệu</item>
+        <item>Phục Hồi Chức Năng</item>
+        <item>Phụ Khoa</item>
+        <item>Phẫu Thuật</item>
+    </string-array>
 </resources>

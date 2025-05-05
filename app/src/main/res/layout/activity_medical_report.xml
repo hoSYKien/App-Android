@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Card Section Template -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chọn Nơi Khám Tiếp Theo"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#212121"
+                    android:paddingBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Khoa"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="#424242"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_department"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:entries="@array/department_list"
+                        android:contentDescription="Chọn khoa khám"
+                        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phòng"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="#424242"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_room"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:contentDescription="Chọn phòng khám"
+                        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"/>
+
+                    <Button
+                        android:id="@+id/btn_add_room"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="Thêm"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="Thêm nơi khám tiếp theo"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_next_locations"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:contentDescription="Danh sách nơi khám đã chọn"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Diagnosis Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ghi Chú Các Bệnh Chuẩn Đoán"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#212121"
+                    android:paddingBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nhóm Bệnh"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="#424242"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_group"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:contentDescription="Chọn nhóm bệnh"
+                        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"/>
+
+                    <Button
+                        android:id="@+id/btn_other_group"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="Bệnh Khác"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="Thêm nhóm bệnh khác"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bệnh"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="#424242"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_disease"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:contentDescription="Chọn bệnh"
+                        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/et_note"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:gravity="top"
+                        android:hint="Ghi chú"
+                        android:background="#FFFFFF"
+                        android:padding="8dp"
+                        android:inputType="textMultiLine"
+                        android:contentDescription="Ô nhập ghi chú bệnh chuẩn đoán"/>
+
+                    <Button
+                        android:id="@+id/btn_add_diagnosis"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="Thêm"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="Thêm chẩn đoán bệnh"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_diagnoses"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:contentDescription="Danh sách chẩn đoán bệnh"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Prescription Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kê Đơn Thuốc"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#212121"
+                    android:paddingBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tên Thuốc"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="#424242"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_medicine"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:contentDescription="Chọn tên thuốc"
+                        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"/>
+
+                    <Button
+                        android:id="@+id/btn_add_medicine"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="Thêm"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="Thêm thuốc vào đơn"/>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/et_quantity"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Số lượng"
+                    android:inputType="number"
+                    android:background="#FFFFFF"
+                    android:padding="8dp"
+                    android:contentDescription="Nhập số lượng thuốc"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_prescriptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:contentDescription="Danh sách thuốc kê đơn"
+                    android:layout_marginTop="8dp"/>
+
+                <ImageButton
+                    android:id="@+id/btn_confirm"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="#00796B"
+                    android:contentDescription="Xác nhận"
+                    android:src="@mipmap/ic_confirm_round" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
